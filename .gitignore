@@ -1,0 +1,5 @@
+*.so
+*.o
+*.d
+*.a
+unit_tests
