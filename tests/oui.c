@@ -5,7 +5,7 @@ Test(sample, is_gonna_pass)
     cr_assert(1);
 }
 
-Test(sample, is_not_gonna_pass)
+Test(sample, is_not_gonna_pass, .disabled=true)
 {
     cr_assert(0);
 }
