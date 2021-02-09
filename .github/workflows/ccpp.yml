@@ -37,5 +37,5 @@ jobs:
       - name: Run tests
         env:
           CC: gcc-8
-          LD_PRELOAD: ./libmy_malloc.so
+          # LD_PRELOAD: ./libmy_malloc.so
         run: ./tests/reverse_me_to_improve_your_malloc.jpg
