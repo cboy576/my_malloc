@@ -48,7 +48,7 @@ void *malloc(size_t size)
     meta_t *block = NULL;
     meta_t *last = base;
 
-    if (size <= 0)
+    if (size < 0)
         return NULL;
     if (!base) {
         block = request_space(NULL, size);
@@ -66,6 +66,5 @@ void *malloc(size_t size)
         else
             block->free = 0;
     }
-
     return block + 1;
 }
