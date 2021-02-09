@@ -47,7 +47,6 @@ unit_tests: CFLAGS += -Wextra
 unit_tests: CFLAGS += $(if DEBUG,-g3)
 unit_tests: LDLIBS :=
 unit_tests: LDLIBS += -l:libmy_malloc.so
-unit_tests: LDLIBS += -lcriterion
 unit_tests: LDFLAGS :=
 unit_tests: LDFLAGS += -L.
 unit_tests: LDFLAGS += -Wl,-rpath .

@@ -32,13 +32,13 @@ jobs:
       - name: Build project
         env:
           CC: gcc-8
-        run: make
+        run: make unit_tests
 
-      - name: Install valgrind
-        run: sudo apt install -y valgrind
+      - name: Run tests without LD_PRELOAD
+        run: ./unit_tests
 
-      - name: Run tests
+      - name: Run tests with LD_PRELOAD
         env:
           CC: gcc-8
-          # LD_PRELOAD: ./libmy_malloc.so
-        run: valgrind ./tests/reverse_me_to_improve_your_malloc.jpg
+          LD_PRELOAD: ./libmy_malloc.so
+        run: ./unit_tests

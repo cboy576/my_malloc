@@ -8,7 +8,7 @@ tek:shared "libmy_malloc" {
 
 tek:binary "unit_tests" {
     srcs = {find "./tests/*.c"},
-    libs = {tek:ref "libmy_malloc", "criterion"}
+    libs = {tek:ref "libmy_malloc"}
 }
 
 return tek:make()
