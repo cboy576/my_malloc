@@ -9,7 +9,7 @@
 
 #include "my_malloc.h"
 
-int main()
+int main(void)
 {
     assert(malloc(100));
     assert(realloc(NULL, 100));

@@ -11,10 +11,10 @@
 #include <stddef.h>
 
 typedef struct meta_s {
-  size_t size;
-  struct meta_s *next;
-  int free;
-  int magic;
+    size_t size;
+    struct meta_s *next;
+    int free;
+    int magic;
 } meta_t;
 
 meta_t *get_block_ptr(void *ptr);
