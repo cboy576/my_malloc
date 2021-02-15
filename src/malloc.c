@@ -30,7 +30,8 @@ static meta_t *request_space(meta_t *last, size_t size)
     meta_t *block = sbrk(0);
     const size_t page_size = (size_t)sysconf(_SC_PAGESIZE);
     const size_t block_size = size + sizeof(meta_t);
-    const void *request = sbrk(block_size + page_size * 2 - block_size % (page_size * 2));
+    const void *request = sbrk(block_size + page_size * 2 -
+        block_size % (page_size * 2));
 
     assert((void *)block == request);
     if (request == (void *) -1)
