@@ -12,11 +12,12 @@
 
 typedef struct meta_s {
     size_t size;
-    struct meta_s *next;
     int free;
-    int magic;
+    struct meta_s *previous;
+    struct meta_s *next;
 } meta_t;
 
+meta_t *find_free_block(meta_t **last, size_t size, meta_t *current);
 meta_t *get_block_ptr(void *ptr);
 
 void *malloc(size_t size);
