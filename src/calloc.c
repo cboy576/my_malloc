@@ -11,9 +11,12 @@
 
 void *calloc(size_t nmemb, size_t size)
 {
-    size_t size_total = nmemb * size;
-    void *ptr = malloc(size_total);
+    const size_t size_total = nmemb * size;
+    void *ptr = NULL;
 
+    if (size_total / size != nmemb)
+        return NULL;
+    ptr = malloc(size_total);
     memset(ptr, 0, size_total);
     return ptr;
 }
