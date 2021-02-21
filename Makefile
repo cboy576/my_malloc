@@ -7,7 +7,7 @@
 
 NAME = libmy_malloc.so
 
-all: libmy_malloc.so
+all: $(NAME)
 .PHONY: all
 
 __NAME__SRCS := $(shell find -path './src/*.c')
@@ -37,7 +37,7 @@ unit_tests_SRCS := $(shell find -path './tests/*.c')
 unit_tests_OBJS := $(filter %.c,$(unit_tests_SRCS))
 unit_tests_OBJS := $(unit_tests_OBJS:.c=.o)
 unit_tests_DEPS := $(unit_tests_OBJS:.o=.d)
-unit_tests $(unit_tests_OBJS): libmy_malloc.so
+unit_tests $(unit_tests_OBJS): $(NAME)
 unit_tests: CPPFLAGS :=
 unit_tests: CPPFLAGS += -MD -MP
 unit_tests: CPPFLAGS += -I./include
@@ -46,7 +46,7 @@ unit_tests: CFLAGS += -Wall
 unit_tests: CFLAGS += -Wextra
 unit_tests: CFLAGS += $(if DEBUG,-g3)
 unit_tests: LDLIBS :=
-unit_tests: LDLIBS += -l:libmy_malloc.so
+unit_tests: LDLIBS += -l:$(NAME)
 unit_tests: LDFLAGS :=
 unit_tests: LDFLAGS += -L.
 unit_tests: LDFLAGS += -Wl,-rpath .

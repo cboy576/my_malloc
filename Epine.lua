@@ -1,4 +1,6 @@
-local tek = require "@nasso/epine-tek/v0.1.0-alpha8"
+local tek = require "@nasso/epine-tek/v0.2.0-alpha"
+
+tek:name "libmy_malloc.so"
 
 tek:project "malloc" {"libmy_malloc.so"}
 
