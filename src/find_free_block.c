@@ -21,9 +21,10 @@ meta_t *find_free_block(meta_t **last, size_t size, meta_t *current)
     }
     if (current)
         return current;
-    new_addr = ((size_t) *last - (*last)->size - sizeof(meta_t)) & -4;
-    if ((size_t) new_addr - sizeof(meta_t) - size <= (size_t) current_brk)
-        return NULL;
+    new_addr = (meta_t *)
+        ((((size_t) *last + (*last)->size + sizeof(meta_t)) + 7) & -8);
+    if ((size_t) new_addr + sizeof(meta_t) + size >= (size_t) current_brk)
+        forward_brk(size);
     new_addr->size = size;
     new_addr->next = NULL;
     new_addr->previous = *last;

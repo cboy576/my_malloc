@@ -19,6 +19,7 @@ typedef struct meta_s {
 
 meta_t *find_free_block(meta_t **last, size_t size, meta_t *current);
 meta_t *get_block_ptr(void *ptr);
+void *forward_brk(size_t size);
 
 void *malloc(size_t size);
 void free(void *ptr);
