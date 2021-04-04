@@ -27,7 +27,8 @@ static meta_t *request_space(meta_t *last, size_t size)
     return request;
 }
 
-static void add_new_block(meta_t **last, size_t size, void *base, meta_t **block)
+static void add_new_block(meta_t **last, size_t size,
+    void *base, meta_t **block)
 {
     *block = find_free_block(last, size, base);
     (*block)->free = 0;
