@@ -9,7 +9,9 @@
 
 void *reallocarray(void *ptr, size_t nmemb, size_t size)
 {
-    if (((nmemb * size) / size) != nmemb)
+    const size_t requested_size = nmemb * size;
+
+    if ((requested_size / size) != nmemb)
         return NULL;
-    return realloc(ptr, nmemb * size);
+    return realloc(ptr, requested_size);
 }

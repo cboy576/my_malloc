@@ -1,11 +1,10 @@
 /*
 ** EPITECH PROJECT, 2021
-** malloc [WSL: Ubuntu]
+** malloc
 ** File description:
 ** forward_brk
 */
 
-#include <stdio.h>
 #include <assert.h>
 #include <unistd.h>
 

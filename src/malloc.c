@@ -5,10 +5,6 @@
 ** malloc
 */
 
-#include <stdio.h>
-#include <assert.h>
-#include <unistd.h>
-
 #include "my_malloc.h"
 
 meta_t *get_block_ptr(void *ptr)
@@ -32,11 +28,10 @@ static meta_t *request_space(meta_t *last, size_t size)
     return request;
 }
 
-static int add_new_block(meta_t **last, size_t size, void *base, meta_t **block)
+static void add_new_block(meta_t **last, size_t size, void *base, meta_t **block)
 {
     *block = find_free_block(last, size, base);
     (*block)->free = 0;
-    return 0;
 }
 
 void *malloc(size_t size)
@@ -50,7 +45,7 @@ void *malloc(size_t size)
         if (!block)
             return NULL;
         base = block;
-    } else if (add_new_block(&last, size, base, &block))
-        return NULL;
+    } else
+        add_new_block(&last, size, base, &block);
     return block + 1;
 }

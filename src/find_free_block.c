@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** malloc [WSL: Ubuntu]
+** malloc
 ** File description:
 ** find_free_block
 */
