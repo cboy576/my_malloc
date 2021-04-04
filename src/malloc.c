@@ -23,7 +23,6 @@ static meta_t *request_space(meta_t *last, size_t size)
         last->next = request;
     request->size = size;
     request->next = NULL;
-    request->previous = last;
     request->free = 0;
     return request;
 }

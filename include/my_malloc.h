@@ -13,7 +13,6 @@
     typedef struct meta_s {
         size_t size;
         int free;
-        struct meta_s *previous;
         struct meta_s *next;
     } meta_t;
 
